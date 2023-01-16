@@ -7,15 +7,13 @@ import { ComponentsModule } from './components/components.module';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-
-const appRoutes : Routes = [
-  {path: '' , component: CalculComponent }
-];
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CalculComponent
+    CalculComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +21,11 @@ const appRoutes : Routes = [
     ComponentsModule,
     MaterialModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot([
+      {path:'' , redirectTo:'dashboard' ,pathMatch: 'full'},
+      {path: 'dashboard' ,component:DashboardComponent},
+      {path:'calcul' , component:CalculComponent}
+    ])
     
   ],
   providers: [],

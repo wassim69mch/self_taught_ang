@@ -9,6 +9,7 @@ import { MaterialModule } from 'src/app/material/material.module';
 })
 export class SidebarComponent implements OnInit {
 
+  showFiller = false;
 	constructor() { }
     
 	ngOnInit(): void {
